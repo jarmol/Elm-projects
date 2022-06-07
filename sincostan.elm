@@ -82,10 +82,9 @@ cx6 cx =
 view : Model -> Html Msg
 view model =
   let xi = toRad model
-      lab6 = "sin x ≅ x - x³ / 3! + x⁵ / 5! - x⁷ / 7! + x⁹ / 9! - x¹¹ / 11! = "
+      lab6 = "sin x ≅ x - x³ / 3! + x⁵ / 5! - x⁷ / 7! + x⁹ / 9! - x" --¹¹ / 11! = "
       labc = "cos x ≅ 1 - x² / 2! + x⁴ / 4! - x⁶ / 6! + x⁸ / 8! - x"
       supStyle = [style "font-size" "65%", style "font-weight" "bold"]
-      labe =   " /10! + x¹² /12! = "
   in
   div [style "margin" "5%", style "font-size" "125%"]
     [ h1 [style "font-family" "Helvetica Neue",
@@ -103,11 +102,14 @@ view model =
         ++ dform 12 (tan xi))]
     , p [] [text ("x = " ++String.fromInt model
      ++ "° = " ++ dform 6 xi ++ " radians")]
-    , p [] [text (lab6 ++ dform 12 (sx6 xi))]
+    , p [] [text (lab6)
+    , sup supStyle [text "11"]
+    , text (" /11! = " ++ dform 12 (sx6 xi))]
     , p [] [text (labc)
---  , sup [style "font-size" "65%", style "font-weight" "bold"][text "10"]
     , sup supStyle [text "10"]
-    , text (labe ++ dform 12 (cx6 xi))]
+    , text (" /10! + x")
+    , sup supStyle [text "12"]
+    , text (" /12! = " ++ dform 12 (cx6 xi))]
     , p [][]
     , text ("tan x = sin x / cos x ≅ " ++ dform 10 ((sx6 xi)/(cx6 xi)))
     ]
