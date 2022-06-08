@@ -4,4 +4,6 @@ miscellany stuff in Elm-language
 Just download the files sincostan.html, sincostan.js and run it in your browser.
 
 The Elm-source code sincostan.elm was compiled with elm make and compressed with
-optimizer.sh + uglifyjs in bash 
+optimizer.sh + uglifyjs in bash .
+
+The code can be editet and run on-line at https://ellie-app.com/hJbrZjFyKKza1
